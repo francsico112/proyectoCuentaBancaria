@@ -8,6 +8,8 @@ public class testCuenta {
 		
 		Cuenta c= new Cuenta(x,"66666666666");
 		Cuenta f= new Cuenta(x,"6666666666");
+		Cuenta r= new Cuenta(x,"6666666666");
+		
 		
 		
 		System.out.println(c.toString());
@@ -21,9 +23,10 @@ public class testCuenta {
 		System.out.println(c.toString());
 		System.out.println(c.imprimirPorPantalla());
 		System.out.println(c.CuentasIguales(f));
-		
+		System.out.println(r.CuentasIguales(f));
 		c.visualizarMovimientos();
 		
+	System.out.println();
 		
 		
 		
