@@ -23,7 +23,7 @@ public class testCuenta {
 		System.out.println(c.CuentasIguales(f));
 		
 		c.visualizarMovimientos();
-		
+	
 		
 		
 		

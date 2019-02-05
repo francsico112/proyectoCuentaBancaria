@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Cuenta {
+public class Cuenta implements Comparable {
 
 	private Titular titular;
 	private String numeroCuenta;
@@ -98,9 +98,9 @@ public class Cuenta {
 			return false;
 
 	}
-	
+
 	public void visualizarMovimientos() {
-		
+
 		for (Movimientos movimientos : movimiento) {
 			System.out.println(movimientos);
 		}
@@ -110,6 +110,16 @@ public class Cuenta {
 	public String toString() {
 		return "Cuenta=" + titular + ", numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", fechaApertura="
 				+ fechaApertura;
+	}
+	
+	
+//compareTo sobreescrito de la interfaz Comparable	-------------------------------------------------------------------------------------------------------
+
+	@Override
+	public int compareTo(Object otra) {
+		Cuenta x=(Cuenta) otra;
+	
+		return this.saldo.compareTo(x.saldo);
 	}
 
 }
