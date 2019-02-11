@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Cuenta {
+public class Cuenta implements Comparable {
 
 	private Titular titular;
 	private String numeroCuenta;
@@ -21,10 +21,16 @@ public class Cuenta {
 	}
 
 	public Cuenta(Titular titular, String numeroCuenta) {
-		super();
 		this.titular = titular;
 		this.numeroCuenta = numeroCuenta;
 		this.saldo = 0d;
+		this.fechaApertura = Calendar.getInstance().getTime();
+		this.movimiento = new ArrayList<Movimientos>();
+	}
+	public Cuenta(Titular titular, String numeroCuenta,Double saldo) {
+		this.titular = titular;
+		this.numeroCuenta = numeroCuenta;
+		this.saldo = saldo;
 		this.fechaApertura = Calendar.getInstance().getTime();
 		this.movimiento = new ArrayList<Movimientos>();
 	}
@@ -98,9 +104,9 @@ public class Cuenta {
 			return false;
 
 	}
-	
+
 	public void visualizarMovimientos() {
-		
+
 		for (Movimientos movimientos : movimiento) {
 			System.out.println(movimientos);
 		}
@@ -110,6 +116,16 @@ public class Cuenta {
 	public String toString() {
 		return "Cuenta=" + titular + ", numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", fechaApertura="
 				+ fechaApertura;
+	}
+	
+	
+//compareTo sobreescrito de la interfaz Comparable	-------------------------------------------------------------------------------------------------------
+
+	@Override
+	public int compareTo(Object otra) {
+		Cuenta x=(Cuenta) otra;
+	
+		return this.saldo.compareTo(x.saldo);
 	}
 
 }
